@@ -118,9 +118,9 @@ class ListTableViewController: UITableViewController, ListTableViewCellDelegate,
     func controller(controller: NSFetchedResultsController, didChangeSection sectionInfo: NSFetchedResultsSectionInfo, atIndex sectionIndex: Int, forChangeType type: NSFetchedResultsChangeType) {
         switch type {
         case.Delete:
-            tableView.deleteSections(NSIndexSet(index: sectionIndex), withRowAnimation: .Automatic)
+            tableView.deleteSections(NSIndexSet(index: sectionIndex), withRowAnimation: .Fade)
         case.Insert:
-            tableView.insertSections(NSIndexSet(index: sectionIndex), withRowAnimation: .Automatic)
+            tableView.insertSections(NSIndexSet(index: sectionIndex), withRowAnimation: .Fade)
         default:
             break
         }
@@ -130,17 +130,17 @@ class ListTableViewController: UITableViewController, ListTableViewCellDelegate,
         switch type {
         case.Delete:
             guard let indexPath = indexPath else {return}
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         case.Insert:
             guard let newIndexPath = newIndexPath else {return}
-            tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Automatic)
+            tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Fade)
         case.Update:
             guard let indexPath = indexPath else {return}
-            tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+            tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         case.Move:
             guard let indexPath = indexPath, newIndexPath = newIndexPath else {return}
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
-            tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Automatic)
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Fade)
         }
     }
     
